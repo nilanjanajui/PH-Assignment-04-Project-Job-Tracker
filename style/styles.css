@@ -1,0 +1,121 @@
+/* =============================
+    JOB CARD HOVER ANIMATION
+   ============================= */
+
+.card {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08),
+        0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Slight interaction feedback for buttons inside cards */
+.card button {
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.card button:hover {
+    transform: translateY(-3px);
+}
+
+/* Delete button hover */
+.btn-delete:hover {
+    background-color: #f3f4f6;
+    transform: scale(1.1);
+}
+
+
+
+/* ============= */
+
+.card.interview {
+    background-color: #f8fdfb;
+    border-left: 4px solid #10b981;
+}
+
+.card.rejected {
+    background-color: #fef8f8;
+    border-left: 4px solid #ef4444;
+}
+
+.card.not-applied {
+    background-color: white;
+    border-left: 4px solid transparent;
+}
+
+
+/* ---*/
+
+
+
+/* ================= EMPTY STATE ================= */
+#emptyState {
+    max-width: 24rem; /* constrain width */
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 576px) {
+    main {
+        width: 95% !important;
+        padding-bottom: 4rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(1, 1fr); /* single column on mobile */
+        gap: 1rem;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    .flex.gap-3 {
+        gap: 0.5rem;
+    }
+
+    .card {
+        flex-direction: row; /* keep delete button on the right */
+        padding: 1rem;
+        align-items: flex-start; /* align top of card content and button */
+        gap: 1rem; /* optional spacing between content and button */
+    }
+
+    .card > div:first-child {
+        flex: 1; /* main content takes available space */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card > div:last-child {
+        margin-top: 0; /* no extra margin, keep button aligned right */
+    }
+
+    .status {
+        margin-top: 0.5rem;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .btn-delete {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
