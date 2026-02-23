@@ -181,3 +181,18 @@ mainContainer.addEventListener('click', function (event) {
         card.classList.remove('interview', 'not-applied');
     }
 });
+
+
+function checkFilterEmpty(list) {
+    if (list.length === 0) {
+        filterSection.innerHTML = `
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 mt-6 p-16 text-center">
+                <div class="flex flex-col items-center justify-center space-y-4">
+                    <img src="./images/jobs.png" alt="No jobs icon" class="w-20 h-20 object-contain" />
+                    <h3 class="text-xl font-semibold text-blue-900">No jobs available</h3>
+                    <p class="text-gray-500 text-sm">Check back soon for new job opportunities</p>
+                </div>
+            </div>
+        `;
+    }
+}
