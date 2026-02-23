@@ -26,7 +26,7 @@
 
    Event bubbling is a mechanism in the DOM event model where an event starts at the element that triggered it and then propagates upward through its parent elements, continuing until it reaches the document root.
 
-   For example, if a button inside a <div> is clicked, the click event is first handled by the button, then by the surrounding <div>, then by the <body>, and finally by the <document>, provided listeners are attached at those levels.
+   For example, if a button inside a `<div>` is clicked, the click event is first handled by the button, then by the surrounding `<div>`, then by the `<body>`, and finally by the `<document>`, provided listeners are attached at those levels.
 
    Most commonly used events such as click, keydown and input bubble by default. Evenet bubbling allows parent elements to respont to events that occur on their child elements.
   
