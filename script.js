@@ -106,3 +106,78 @@ interviewFilterBtn.addEventListener('click', () => {
 rejectedFilterBtn.addEventListener('click', () => {
     toggleStyle('rejected-filter-btn');
 });
+
+
+mainContainer.addEventListener('click', function (event) {
+
+    const card = event.target.closest('.card');
+    if (!card) return;
+
+    const company = card.querySelector('.company').innerText;
+    const role = card.querySelector('.role').innerText;
+    const meta = card.querySelector('.text-sm').innerText;
+    const description = card.querySelector('.text-gray-600').innerText;
+    const statusEl = card.querySelector('.status');
+
+
+
+
+    // ===== INTERVIEW =====
+    if (event.target.classList.contains('interview-btn')) {
+
+        updateStatusBadge(statusEl, 'INTERVIEW');
+
+        rejectedList = rejectedList.filter(job => job.company !== company);
+
+        if (!interviewList.find(job => job.company === company)) {
+            interviewList.push({ company, role, meta, description });
+        }
+
+        if (currentStatus === 'interview-filter-btn') renderInterview();
+        if (currentStatus === 'rejected-filter-btn') renderRejected();
+
+        calculateCount();
+    }
+
+    // ===== REJECTED =====
+    else if (event.target.classList.contains('rejected-btn')) {
+
+        updateStatusBadge(statusEl, 'REJECTED');
+
+        interviewList = interviewList.filter(job => job.company !== company);
+
+        if (!rejectedList.find(job => job.company === company)) {
+            rejectedList.push({ company, role, meta, description });
+        }
+
+        if (currentStatus === 'interview-filter-btn') renderInterview();
+        if (currentStatus === 'rejected-filter-btn') renderRejected();
+
+        calculateCount();
+    }
+
+    // ===== DELETE =====
+    else if (event.target.classList.contains('btn-delete')) {
+
+        card.remove();
+
+        interviewList = interviewList.filter(job => job.company !== company);
+        rejectedList = rejectedList.filter(job => job.company !== company);
+
+        if (currentStatus === 'interview-filter-btn') renderInterview();
+        if (currentStatus === 'rejected-filter-btn') renderRejected();
+
+        calculateCount();
+    }
+
+    // Add this inside your event delegation for INTERVIEW/REJECTED
+    if (event.target.classList.contains('interview-btn')) {
+        card.classList.add('interview');
+        card.classList.remove('rejected', 'not-applied');
+    }
+
+    if (event.target.classList.contains('rejected-btn')) {
+        card.classList.add('rejected');
+        card.classList.remove('interview', 'not-applied');
+    }
+});
