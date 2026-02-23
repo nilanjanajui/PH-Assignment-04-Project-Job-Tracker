@@ -1,3 +1,10 @@
+
+
+.geist-font {
+  font-family: "Geist", sans-serif;
+  font-optical-sizing: auto;
+}
+
 .card {
     transition:
         transform 0.25s ease,
