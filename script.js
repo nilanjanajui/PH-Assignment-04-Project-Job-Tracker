@@ -196,3 +196,46 @@ function checkFilterEmpty(list) {
         `;
     }
 }
+
+
+
+function renderInterview() {
+    filterSection.innerHTML = '';
+
+    if (interviewList.length === 0) {
+        checkFilterEmpty(interviewList);
+        return;
+    }
+
+    interviewList.forEach(job => {
+        const div = document.createElement('div');
+        div.className = 'card bg-white rounded-lg shadow p-6 flex justify-between';
+
+        div.innerHTML = `
+            <div class="space-y-4">
+                <div>
+                    <h2 class="company text-xl font-bold text-blue-900">${job.company}</h2>
+                    <p class="role text-gray-600">${job.role}</p>
+                </div>
+
+                <p class="text-sm text-gray-500">${job.meta}</p>
+                <span class="status"></span>
+                <p class="text-gray-600 text-sm">${job.description}</p>
+
+                <div class="flex gap-3">
+                    <button class="interview-btn px-4 py-2 text-sm rounded border border-green-500 text-green-600">Interview</button>
+                    <button class="rejected-btn px-4 py-2 text-sm rounded border border-red-500 text-red-600">Rejected</button>
+                </div>
+            </div>
+
+            <div>
+                <button class="btn-delete w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100">
+    <img src="Trash.png" alt="Delete" class="w-5 h-5 object-contain" />
+</button>
+            </div>
+        `;
+
+        filterSection.appendChild(div);
+        updateStatusBadge(div.querySelector('.status'), 'INTERVIEW');
+    });
+}
