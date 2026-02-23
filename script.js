@@ -60,3 +60,49 @@ function updateStatusBadge(statusEl, status) {
         statusEl.innerText = 'NOT APPLIED';
     }
 }
+
+
+function toggleStyle(id) {
+
+    [allFilterBtn, interviewFilterBtn, rejectedFilterBtn].forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('bg-gray-200');
+    });
+
+    const selected = document.getElementById(id);
+    selected.classList.remove('bg-gray-200');
+    selected.classList.add('bg-blue-600', 'text-white');
+
+    currentStatus = id;
+
+    if (id === 'interview-filter-btn') {
+        allCardSection.classList.add('hidden');
+        filterSection.classList.remove('hidden');
+        renderInterview();
+    }
+    else if (id === 'rejected-filter-btn') {
+        allCardSection.classList.add('hidden');
+        filterSection.classList.remove('hidden');
+        renderRejected();
+    }
+    else {
+        allCardSection.classList.remove('hidden');
+        filterSection.classList.add('hidden');
+    }
+
+    calculateCount();
+}
+
+
+
+allFilterBtn.addEventListener('click', () => {
+    toggleStyle('all-filter-btn');
+});
+
+interviewFilterBtn.addEventListener('click', () => {
+    toggleStyle('interview-filter-btn');
+});
+
+rejectedFilterBtn.addEventListener('click', () => {
+    toggleStyle('rejected-filter-btn');
+});
