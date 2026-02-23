@@ -12,7 +12,7 @@
 
   querySelector() and querySelectorAll() use CSS selectors, making them the most flexible options. querySelector() returns the first matching element, while querySelectorALl() returns a static NodeList containg all matches. Unlike getElementsByClassName(), the returned list does not updated automatically the DOM changes.
   
-2. How do you create and insert a new element into the DOM?
+### 2. How do you create and insert a new element into the DOM?
    Answer:
    To add a new element to the DOM, JavaScript follows a clear three step process. First, a new element is created using document.createElement(). Next, its content, attributes, or classes and defined. Finally, the element is inserted into the document using methods such as appendChild(), append() or prepend().
 
