@@ -93,8 +93,6 @@ function toggleStyle(id) {
     calculateCount();
 }
 
-
-
 allFilterBtn.addEventListener('click', () => {
     toggleStyle('all-filter-btn');
 });
@@ -122,7 +120,6 @@ mainContainer.addEventListener('click', function (event) {
 
 
 
-    // ===== INTERVIEW =====
     if (event.target.classList.contains('interview-btn')) {
 
         updateStatusBadge(statusEl, 'INTERVIEW');
@@ -139,7 +136,6 @@ mainContainer.addEventListener('click', function (event) {
         calculateCount();
     }
 
-    // ===== REJECTED =====
     else if (event.target.classList.contains('rejected-btn')) {
 
         updateStatusBadge(statusEl, 'REJECTED');
@@ -156,7 +152,6 @@ mainContainer.addEventListener('click', function (event) {
         calculateCount();
     }
 
-    // ===== DELETE =====
     else if (event.target.classList.contains('btn-delete')) {
 
         card.remove();
@@ -170,7 +165,6 @@ mainContainer.addEventListener('click', function (event) {
         calculateCount();
     }
 
-    // Add this inside your event delegation for INTERVIEW/REJECTED
     if (event.target.classList.contains('interview-btn')) {
         card.classList.add('interview');
         card.classList.remove('rejected', 'not-applied');
@@ -181,7 +175,6 @@ mainContainer.addEventListener('click', function (event) {
         card.classList.remove('interview', 'not-applied');
     }
 });
-
 
 function checkFilterEmpty(list) {
     if (list.length === 0) {
@@ -196,7 +189,6 @@ function checkFilterEmpty(list) {
         `;
     }
 }
-
 
 
 function renderInterview() {
@@ -230,7 +222,7 @@ function renderInterview() {
 
             <div>
                 <button class="btn-delete w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100">
-    <img src="Trash.png" alt="Delete" class="w-5 h-5 object-contain" />
+    <img src="./images/Trash.png" alt="Delete" class="w-5 h-5 object-contain" />
 </button>
             </div>
         `;
@@ -239,8 +231,6 @@ function renderInterview() {
         updateStatusBadge(div.querySelector('.status'), 'INTERVIEW');
     });
 }
-
-
 
 function renderRejected() {
     filterSection.innerHTML = '';
@@ -273,7 +263,7 @@ function renderRejected() {
 
             <div>
                 <button class="btn-delete w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100">
-    <img src="Trash.png" alt="Delete" class="w-5 h-5 object-contain" />
+    <img src="./images/Trash.png" alt="Delete" class="w-5 h-5 object-contain" />
 </button>
             </div>
         `;
