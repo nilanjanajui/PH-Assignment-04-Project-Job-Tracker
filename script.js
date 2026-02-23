@@ -42,3 +42,21 @@ function calculateCount() {
 }
 
 calculateCount();
+
+
+function updateStatusBadge(statusEl, status) {
+    statusEl.className = 'status inline-block px-3 py-1 rounded text-xs';
+
+    if (status === 'INTERVIEW') {
+        statusEl.classList.add('bg-green-100', 'text-green-600');
+        statusEl.innerText = 'INTERVIEW';
+    }
+    else if (status === 'REJECTED') {
+        statusEl.classList.add('bg-red-100', 'text-red-600');
+        statusEl.innerText = 'REJECTED';
+    }
+    else {
+        statusEl.classList.add('bg-gray-200', 'text-gray-600');
+        statusEl.innerText = 'NOT APPLIED';
+    }
+}
