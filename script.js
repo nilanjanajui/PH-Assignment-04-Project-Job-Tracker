@@ -171,7 +171,7 @@ function createEmptyMessage() {
     return `
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 mt-6 p-16 text-center">
             <div class="flex flex-col items-center justify-center space-y-4">
-                <img src="jobs.png" alt="No jobs icon" class="w-20 h-20 object-contain" />
+                <img src="./images/jobs.png" alt="No jobs icon" class="w-20 h-20 object-contain" />
                 <h3 class="text-xl font-semibold text-blue-900">No jobs available</h3>
                 <p class="text-gray-500 text-sm">Check back soon for new job opportunities</p>
             </div>
@@ -239,7 +239,7 @@ function generateCardHTML(job) {
 
         <div>
             <button class="btn-delete w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100">
-                <img src="Trash.png" alt="Delete" class="w-5 h-5 object-contain" />
+                <img src="./images/Trash.png" alt="Delete" class="w-5 h-5 object-contain" />
             </button>
         </div>
     `;
